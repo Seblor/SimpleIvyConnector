@@ -6,7 +6,8 @@ I made this API for a university project where I had to use Ivy with Python.
 Since there is no clear & simple `hello world`-like example, I decided to make a simple connector with a basic *client-server* example (even though it's more like a peer-to-peer system) to help anyone who wanted to start prototyping something with Ivy.
 
 # Dependencies
-SimpleIvyConnector was developped with Python 3.5 on Windows
+SimpleIvyConnector was developped with Python 3.5 on Windows.
+
 Only needs Ivy ("`sudo pip install ivy`").
 
 # Example
@@ -53,4 +54,5 @@ con.addRegexListener("text (.*)", textListener)
 
 # Licence
 Just please respect the GNU GPL licence (file "*LICENSE*" included at the root folder)
+
 I won't be mad if you don't, but please do ;)
