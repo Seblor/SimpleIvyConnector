@@ -1,7 +1,7 @@
 '''
 Created on 19 apr. 2017
-
 @author: Seblor
+@repo: https://github.com/Seblor/SimpleIvyConnector
 '''
 
 from ivy.std_api import *
@@ -70,7 +70,7 @@ class Connector():
         @param keyword: will recover everything after the keyword (which needs to be followed by a whitespace)
         @param listener: callback(agent, message)
         """
-        self.addRegexListener(regex="^%s (.*)" % (keyword), listener=listener)
+        self.addRegexListener(regex="^%s ?(.*)" % (keyword), listener=listener)
     
     def on_die(self, agent, id):
         """
@@ -96,3 +96,21 @@ class Connector():
             msg = "%s %s" % (keyword, message)
         debug("final message sent %s" % msg)
         IvySendMsg(msg)
+    
+    def isAlone(self):
+        """
+        Returns True if no other client is detected
+        """
+        return (len(IvyGetApplicationList()) == 1)
+    
+    def getClients(self):
+        """
+        Returns the list of the connected clients
+        """
+        return IvyGetApplicationList()
+    
+    def closeConnection(self):
+        """
+        Stops Ivy
+        """
+        IvyStop()
